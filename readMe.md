@@ -19,6 +19,16 @@ docker run --name budget-planner-api --link ty-db-container
 
 ## Production Build using gradle wrapper AND Execution with Java17
 
+### Step 0 (Database Readiness):
+You will find **data.sql** within /database directory of project root.
+Keep in mind it requires as minimum MySQL 8.x to be installed in your local machine.
+
+If you are already done with MySQL DB installation in your local, then you could execute data.sql script straight forward.
+
+After script exection, please verify schema had been created covering mentioned tables within script content.
+
+Within application.properties in src/main/resources directory you will find DB user AND password paramters. Please ensure it matches with your DB user if not, please modify it before next steps.
+
 ### Step 1:
 ```bash
 ./gradlew clean
