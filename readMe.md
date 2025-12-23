@@ -17,7 +17,7 @@ To run docker image (with a container has naming convention)
 docker run --name budget-planner-api --link ty-db-container
 ```
 
-## Execution using gradle wrapper (for production)
+## Production Build using gradle wrapper AND Execution with Java17
 
 ### Step 1:
 ```bash
