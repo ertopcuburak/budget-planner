@@ -19,7 +19,7 @@ docker run --name budget-planner-api --link ty-db-container
 
 ## Execution using gradle wrapper (for production)
 
-### Step1:
+### Step 1:
 ```bash
 ./gradlew clean
 ./gradlew bootJar
@@ -30,7 +30,7 @@ After a successful build .jar file should be created under **build/libs** direct
 ### Step 2:
 Then you could execute following command:
 ```bash
-cd builds/lib
+cd build/libs
 ```
 
 ### Step 3:
