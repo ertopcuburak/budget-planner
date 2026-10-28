@@ -105,8 +105,8 @@ public class RestCapture {
 
         budget = this.budgetService.getBudgetByTerm(budgetRequest.getStartTime(), budgetRequest.getEndTime());
         if (budget == null || budget.getBalance() == null) {
-            response.setMessage("An error had occurred during calculation of budget!");
-            response.setHasErrors(true);
+            responseMessage = "An error had occurred during calculation of budget!";
+            response = new Response(responseMessage, true, budget);
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         responseMessage = "Budget balance for term between " + budget.getStartTime() + " and " + budget.getEndTime()

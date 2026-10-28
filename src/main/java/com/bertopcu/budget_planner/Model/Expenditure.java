@@ -1,10 +1,7 @@
 package com.bertopcu.budget_planner.Model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.Type;
 
 import java.util.HashMap;
 

@@ -2,7 +2,6 @@ package com.bertopcu.budget_planner.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 import java.util.HashMap;
 

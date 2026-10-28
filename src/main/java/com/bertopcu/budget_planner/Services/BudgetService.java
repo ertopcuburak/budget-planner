@@ -7,9 +7,6 @@ import com.bertopcu.budget_planner.Model.Expenditure;
 import com.bertopcu.budget_planner.Model.Revenue;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
