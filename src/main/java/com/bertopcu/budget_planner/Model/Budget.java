@@ -96,7 +96,7 @@ public class Budget extends ResponseObject{
     }
 
     @Override
-    String getAttribute(String key) {
+    public String getAttribute(String key) {
         switch(key) {
             case "startTime":
                 return Long.toString(this.getStartTime());
@@ -110,7 +110,7 @@ public class Budget extends ResponseObject{
     }
 
     @Override
-    void setCustomAttribute(String key, String value) {
+    public void setCustomAttribute(String key, String value) {
         this.customAttributes.put(key, value);
     }
 }

@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class BudgetService {
@@ -31,6 +34,9 @@ public class BudgetService {
         /**
          * TODO: implement dao communication for expenditure insertion
          */
+        if (cost.getId() == null || cost.getId().isEmpty()) {
+            cost.setId(UUID.randomUUID().toString());
+        }
         costInterface.save(cost);
         return true;
     }
@@ -39,8 +45,27 @@ public class BudgetService {
         /**
          * TODO: implement dao communication for revenue insertion
          */
+        if (rev.getId() == null || rev.getId().isEmpty()) {
+            rev.setId(UUID.randomUUID().toString());
+        }
         revenuInterface.save(rev);
         return true;
+    }
+
+    public Optional<Expenditure> getCostById(String id) {
+        return costInterface.findById(id);
+    }
+
+    public Optional<Revenue> getRevenueById(String id) {
+        return revenuInterface.findById(id);
+    }
+
+    public List<Expenditure> getAllCosts() {
+        return costInterface.findAll();
+    }
+
+    public List<Revenue> getAllRevenues() {
+        return revenuInterface.findAll();
     }
 
     public ArrayList<Expenditure> getCostsByTerm(Long startTime, Long endTime) {

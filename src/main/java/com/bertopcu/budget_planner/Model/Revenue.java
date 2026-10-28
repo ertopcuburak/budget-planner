@@ -9,6 +9,7 @@ import java.util.HashMap;
 @Entity
 public class Revenue extends ResponseObject {
     @Id
+    private String id;
     private String title;
     private String description;
     private Double rate;
@@ -19,7 +20,9 @@ public class Revenue extends ResponseObject {
     private HashMap<String, String> customAttributes;
     private Integer monthly;
 
-    public Revenue(String title, String description, Double rate, String currency, String origin, Long timestamp, HashMap<String, String> customAttributes, Integer monthly) {
+    public Revenue(String id, String title, String description, Double rate, String currency, String origin,
+            Long timestamp, HashMap<String, String> customAttributes, Integer monthly) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.rate = rate;
@@ -31,6 +34,14 @@ public class Revenue extends ResponseObject {
     }
 
     public Revenue() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -98,8 +109,10 @@ public class Revenue extends ResponseObject {
     }
 
     @Override
-    String getAttribute(String key) {
-        switch(key) {
+    public String getAttribute(String key) {
+        switch (key) {
+            case "id":
+                return this.getId();
             case "title":
                 return this.getTitle();
             case "description":
@@ -118,7 +131,7 @@ public class Revenue extends ResponseObject {
     }
 
     @Override
-    void setCustomAttribute(String key, String value) {
+    public void setCustomAttribute(String key, String value) {
         this.customAttributes.put(key, value);
     }
 }

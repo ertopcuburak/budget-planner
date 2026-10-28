@@ -11,6 +11,7 @@ import java.util.HashMap;
 @Entity
 public class Expenditure extends ResponseObject {
     @Id
+    private String id;
     private String title;
     private String description;
     private Double rate;
@@ -20,7 +21,9 @@ public class Expenditure extends ResponseObject {
 
     private Integer monthly;
 
-    public Expenditure(String title, String description, Double rate, String currency, Long timestamp, HashMap<String, String> customAttributes, Integer monthly) {
+    public Expenditure(String id, String title, String description, Double rate, String currency, Long timestamp,
+            HashMap<String, String> customAttributes, Integer monthly) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.rate = rate;
@@ -31,6 +34,14 @@ public class Expenditure extends ResponseObject {
     }
 
     public Expenditure() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -90,8 +101,10 @@ public class Expenditure extends ResponseObject {
     }
 
     @Override
-    String getAttribute(String key) {
-        switch(key) {
+    public String getAttribute(String key) {
+        switch (key) {
+            case "id":
+                return this.getId();
             case "title":
                 return this.getTitle();
             case "description":
@@ -110,7 +123,7 @@ public class Expenditure extends ResponseObject {
     }
 
     @Override
-    void setCustomAttribute(String key, String value) {
+    public void setCustomAttribute(String key, String value) {
         this.customAttributes.put(key, value);
     }
 }
